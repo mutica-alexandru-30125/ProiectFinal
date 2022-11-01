@@ -5,23 +5,30 @@ public class Zoo {
         private String oras;
         private int nrangajati;
         private int capacitate_gazduire;
-        private int nr_vietati;
+        private int nr_vietati=0;
 
-    public Zoo(String nume, String oras, int nrangajati, int capacitate_gazduire,int nr_vietati) {
+        private static Zoo zoo;
+
+    private Zoo(String nume, String oras, int nrangajati, int capacitate_gazduire) {
         this.nume = nume;
         this.oras = oras;
         this.nrangajati = nrangajati;
         this.capacitate_gazduire = capacitate_gazduire;
-        this.nr_vietati=nr_vietati;
-
     }
 
-    public Zoo() {
+    private Zoo() {
         this.nume =" ";
         this.oras =" ";
         this.nrangajati =-1;
         this.capacitate_gazduire =-1;
-        this.nr_vietati=-1;
+    }
+
+    public static Zoo getInstance(String nume, String oras, int nrangajati, int capacitate_gazduire){
+        if(zoo == null){
+            return Zoo(nume,oras,nrangajati,capacitate_gazduire);
+        }
+        else
+            return zoo;
     }
 
     public String getNume() {

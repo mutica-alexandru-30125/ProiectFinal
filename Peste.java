@@ -7,25 +7,17 @@ public class Peste {
 
     private static Peste pestisor;
 
-    private Peste(String nume, Double inaltime, int kg)	//Constructori
+    public Peste(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
     }
-	private Peste()
+	public Peste()
     {
         this._nume = "";
         this._inaltime = 0;
         this._kg = 0;
-    }
-
-    public static Peste getInstance(String nume, Double inaltime, int kg){
-        if(pestisor == null){
-            pestisor = new Peste(nume,inaltime,kg);
-        }
-        else
-            return null;
     }
 
     public String toString(){	//toString
