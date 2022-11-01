@@ -1,13 +1,14 @@
 package com.benialex.proiectfinal;
 
 public class Zoo {
-        private String nume;
-        private String oras;
-        private int nrangajati;
-        private int capacitate_gazduire;
-        private int nr_vietati=0;
+    private String nume;
+    private String oras;
+    private int nrangajati;
+    private int capacitate_gazduire;
+    private int nr_vietati=0;
 
-        private static Zoo zoo;
+    private static Zoo zoo;
+
 
     private Zoo(String nume, String oras, int nrangajati, int capacitate_gazduire) {
         this.nume = nume;
@@ -25,9 +26,8 @@ public class Zoo {
 
     public static Zoo getInstance(String nume, String oras, int nrangajati, int capacitate_gazduire){
         if(zoo == null){
-            return Zoo(nume,oras,nrangajati,capacitate_gazduire);
+            zoo=new Zoo(nume,oras,nrangajati,capacitate_gazduire);
         }
-        else
             return zoo;
     }
 
@@ -73,10 +73,9 @@ public class Zoo {
 
     @Override
     public String toString() {
-        return "Gradina Zoo din " + nume +
+        return "Gradina Zoo " + nume +
                 " se afla in orasul " + oras +
                 ", are " + nrangajati +" de angajati" +
-                ", o capacitate maxima de gazduire de  "+ capacitate_gazduire+", din care "+nr_vietati+" locuri sunt ocupate";
+                ", o capacitate maxima de gazduire de  "+ capacitate_gazduire+" locuri, din care "+nr_vietati+" locuri sunt ocupate";
     }
 }
-

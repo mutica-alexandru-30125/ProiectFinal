@@ -37,6 +37,8 @@ public class ScreenZoo extends JFrame{
         this.setContentPane(this.PanelMain);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        Zoo z=Zoo.getInstance("a","b",2,2);
+        textFieldTitlu.setText(z.getNume());
         mamifere=new ArrayList<Mamifer>();
         lmamifere=new DefaultListModel();
         listMamifere.setModel(lmamifere);
@@ -96,9 +98,14 @@ public class ScreenZoo extends JFrame{
                         Double.parseDouble(textInaltime.getText()),
                         Integer.parseInt(textKilograme.getText())
                 );
+                if(z.getNr_vietati()>=z.getCapacitate_gazduire())
+                {
+                    JOptionPane.showMessageDialog(PanelMain,"Eroare, ati ajuns la numarul maxim de vietati in acest zoo");
+                }else{
                 mamifere.add(m);
                 refreshMamifereList();
                 System.out.println("noul mamifer a fost adaugat cu succes");
+                z.setNr_vietati(z.getNr_vietati()+1);}
                 clearField();
 
             }
@@ -154,6 +161,7 @@ public class ScreenZoo extends JFrame{
                     if (dialogResult == 0) {
                         lmamifere.remove(mamiferenumar);
                         mamifere.remove(mamiferenumar);
+                        z.setNr_vietati(z.getNr_vietati()-1);
                     }
                     System.out.println("Stergerea s-a facut cu succes");
                 }
@@ -163,6 +171,7 @@ public class ScreenZoo extends JFrame{
                     if (dialogResult == 0) {
                         lpesti.remove(pestinumar);
                         pesti.remove(pestinumar);
+                        z.setNr_vietati(z.getNr_vietati()-1);
                     }
                     System.out.println("Stergerea s-a facut cu succes");
                 }
@@ -172,6 +181,7 @@ public class ScreenZoo extends JFrame{
                     if (dialogResult == 0) {
                         lpasari.remove(pasarinumar);
                         pasari.remove(pasarinumar);
+                        z.setNr_vietati(z.getNr_vietati()-1);
                     }
                     System.out.println("Stergerea s-a facut cu succes");
                 }
@@ -216,9 +226,14 @@ public class ScreenZoo extends JFrame{
                             Double.parseDouble(textInaltime.getText()),
                             Integer.parseInt(textKilograme.getText())
                     );
+                if(z.getNr_vietati()>=z.getCapacitate_gazduire())
+                {
+                    JOptionPane.showMessageDialog(PanelMain,"Eroare, ati ajuns la numarul maxim de vietati in acest zoo");
+                }else{
                     pesti.add(p);
                     refreshPestiList();
                     System.out.println("noul peste  a fost adaugat cu succes");
+                    z.setNr_vietati(z.getNr_vietati()+1);}
                     clearField();
             }
         });
@@ -230,9 +245,14 @@ public class ScreenZoo extends JFrame{
                         Double.parseDouble(textInaltime.getText()),
                         Double.parseDouble(textKilograme.getText())
                 );
+                if(z.getNr_vietati()>=z.getCapacitate_gazduire())
+                {
+                    JOptionPane.showMessageDialog(PanelMain,"Eroare, ati ajuns la numarul maxim de vietati in acest zoo");
+                }else{
                 pasari.add(p);
                 refreshPasariList();
                 System.out.println("noua pasare  a fost adaugata cu succes");
+                z.setNr_vietati(z.getNr_vietati()+1);}
                 clearField();
             }
         });
