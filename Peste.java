@@ -1,17 +1,17 @@
 package com.benialex.proiectfinal;
 
-public class Peste {
+public class Peste extends Vietate{
     private String _nume;
     private Double _inaltime;
     private int _kg;
-
-    private static Peste pestisor;
+    private nrPicioare;
 
     public Peste(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
+        this.nrPicioare = super.nrPicioare();
     }
 	public Peste()
     {
@@ -21,7 +21,7 @@ public class Peste {
     }
 
     public String toString(){	//toString
-		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg;
+		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
 	
     public String getNume()		//Metode get

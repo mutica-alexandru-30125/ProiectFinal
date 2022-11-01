@@ -1,14 +1,16 @@
 package com.benialex.proiectfinal;
 
-public class Mamifer extends Zoo{
+public class Mamifer extends Vietate{
     private String _nume;
     private Double _inaltime;
     private int _kg;
+    private nrPicioare;
     public Mamifer(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
+        this.nrPicioare = super.nrPicioare();
     }
     public Mamifer()
     {
@@ -18,7 +20,7 @@ public class Mamifer extends Zoo{
     }
 	
 	public String toString(){	//toString
-		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" se afla in "+super.oras;
+		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
 	
     public String getNume()									//metode get

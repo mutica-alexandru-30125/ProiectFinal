@@ -1,14 +1,17 @@
 package com.benialex.proiectfinal;
 
-public class Pasare extends Zoo{
+public class Pasare extends Vietate{
     private String _nume;
     private Double _inaltime;
     private Double _kg;
+    private nrPicioare;
+
     public Pasare(String nume, Double inaltime, Double kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
+        this.nrPicioare = super.nrPicioare();
     }
 	public Pasare(String nume, Double inaltime, Double kg)
     {
@@ -18,7 +21,7 @@ public class Pasare extends Zoo{
     }
 	
     public String toString(){	//toString
-        return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+"se afla in zoo-ul din "+super.oras;
+        return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
     public String getNume(){	//Metode get
         return this._nume;
