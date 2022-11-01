@@ -4,16 +4,35 @@ public class Peste {
     private String _nume;
     private Double _inaltime;
     private int _kg;
-    public Peste(String nume, Double inaltime, int kg)
+
+    private static Peste pestisor;
+
+    private Peste(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
     }
-    public String toString(){
-        return _nume+" "+_inaltime+" "+_kg;
+	private Peste()
+    {
+        this._nume = "";
+        this._inaltime = 0;
+        this._kg = 0;
     }
-    public String getNume()
+
+    public static Peste getInstance(String nume, Double inaltime, int kg){
+        if(pestisor == null){
+            pestisor = new Peste(nume,inaltime,kg);
+        }
+        else
+            return null;
+    }
+
+    public String toString(){	//toString
+		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg;
+    }
+	
+    public String getNume()		//Metode get
     {
         return this._nume;
     }
@@ -25,7 +44,8 @@ public class Peste {
     {
         return this._kg;
     }
-    public void setNume(String nume)
+	
+    public void setNume(String nume)	//Metode set
     {
         this._nume=nume;
     }

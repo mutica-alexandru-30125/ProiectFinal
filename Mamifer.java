@@ -1,21 +1,26 @@
 package com.benialex.proiectfinal;
 
-public class Mamifer {
+public class Mamifer extends Zoo{
     private String _nume;
     private Double _inaltime;
     private int _kg;
-    public Mamifer(String nume, Double inaltime, int kg)	//Constructor
+    public Mamifer(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
         this._inaltime = inaltime;
         this._kg = kg;
     }
-    public Mamifer()	//Constructor
+    public Mamifer()
     {
         this._nume = " ";
-        this._inaltime =-1.0;
-        this._kg = -1;
+        this._inaltime =0;
+        this._kg = 0;
     }
+	
+	public String toString(){	//toString
+		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" se afla in "+super.oras;
+    }
+	
     public String getNume()									//metode get
     {
         return this._nume;
@@ -28,6 +33,7 @@ public class Mamifer {
     {
         return this._kg;
     }
+	
     public void setNume(String nume)						//metode set
     {
         this._nume=nume;
@@ -39,8 +45,5 @@ public class Mamifer {
     public void setGreutate(int kg)
     {
         this._kg=kg;
-    }
-    public String toString(){
-        return _nume+" "+_inaltime+" "+_kg;
     }
 }
