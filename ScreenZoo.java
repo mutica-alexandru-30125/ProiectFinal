@@ -15,7 +15,7 @@ public class ScreenZoo extends JFrame{
     private JTextField textNume;
     private JTextField textInaltime;
     private JTextField textKilograme;
-    private JButton ADDButton;
+    private JButton ADDMButton;
     private JButton UPDATEButton;
     private JButton DELETEButton;
     private JButton AFISEAZAButton;
@@ -24,9 +24,9 @@ public class ScreenZoo extends JFrame{
     private JButton ADDPAButton;
     private ArrayList<Mamifer> mamifere;
     private DefaultListModel lmamifere;
-    private ArrayList<Pesti> pesti;
+    private ArrayList<Peste> pesti;
     private DefaultListModel lpesti;
-    private ArrayList<Pasari> pasari;
+    private ArrayList<Pasare> pasari;
     private DefaultListModel lpasari;
     public StringBuffer mesajeroare1=new StringBuffer();
     public StringBuffer mesajeroare2=new StringBuffer();
@@ -40,10 +40,10 @@ public class ScreenZoo extends JFrame{
         mamifere=new ArrayList<Mamifer>();
         lmamifere=new DefaultListModel();
         listMamifere.setModel(lmamifere);
-        pesti=new ArrayList<Pesti>();
+        pesti=new ArrayList<Peste>();
         lpesti=new DefaultListModel();
         listPesti.setModel(lpesti);
-        pasari=new ArrayList<Pasari>();
+        pasari=new ArrayList<Pasare>();
         lpasari=new DefaultListModel();
         listPasari.setModel(lpasari);
 
@@ -54,33 +54,51 @@ public class ScreenZoo extends JFrame{
         listMamifere.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-
+                int mamifernumar= listMamifere.getSelectedIndex();
+                if(mamifernumar>=0){
+                    Mamifer m=mamifere.get(mamifernumar);
+                    textNume.setText(m.getNume());
+                    textInaltime.setText(Double.toString(m.getInaltime()));
+                    textKilograme.setText(Integer.toString(m.getGreutate()));
+                }
             }
         });
         listPesti.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-
+                int pestenumar= listPesti.getSelectedIndex();
+                if(pestenumar>=0){
+                    Peste p=pesti.get(pestenumar);
+                    textNume.setText(p.getNume());
+                    textInaltime.setText(Double.toString(p.getInaltime()));
+                    textKilograme.setText(Integer.toString(p.getGreutate()));
+                }
             }
         });
         listPasari.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-
+                int pasarenumar= listPasari.getSelectedIndex();
+                if(pasarenumar>=0){
+                    Pasare p=pasari.get(pasarenumar);
+                    textNume.setText(p.getNume());
+                    textInaltime.setText(Double.toString(p.getInaltime()));
+                    textKilograme.setText(Double.toString(p.getGreutate()));
+                }
             }
         });
 
-        ADDButton.addActionListener(new ActionListener() {
+        ADDMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Magazin m=new Magazin(
-                        Integer.parseInt(textcod.getText()),
-                        textoras.getText(),
-                        Double.parseDouble(textsuprafata.getText())
+                Mamifer m=new Mamifer(
+                        textNume.getText(),
+                        Double.parseDouble(textInaltime.getText()),
+                        Integer.parseInt(textKilograme.getText())
                 );
-                magazin.add(m);
-                refreshMagazineList();
-                System.out.println("noul magazin a fost adaugat");
+                mamifere.add(m);
+                refreshMamifereList();
+                System.out.println("noul mamifer a fost adaugat cu succes");
                 clearField();
 
             }
@@ -92,26 +110,26 @@ public class ScreenZoo extends JFrame{
                 int pestinumar= listPesti.getSelectedIndex();
                 int pasarinumar= listPasari.getSelectedIndex();
                 if(mamiferenumar>=0){
-                    Mamifer m=mamifere.get(mamifernumar);
+                    Mamifer m=mamifere.get(mamiferenumar);
                     m.setNume(textNume.getText());
-                    m.setInaltime(Integer.parseInt(textInaltime.getText()));
-                    m.setKilograme(Integer.parseInt(textKilograme.getText()));
+                    m.setInaltime(Double.parseDouble(textInaltime.getText()));
+                    m.setGreutate(Integer.parseInt(textKilograme.getText()));
                     refreshMamifereList();
                     System.out.println("Update-ul s-a facut cu succes");
                 }
                 else if(pestinumar>=0){
-                    Pesti p=pesti.get(pestinumar);
+                    Peste p=pesti.get(pestinumar);
                     p.setNume(textNume.getText());
-                    p.setInaltime(Integer.parseInt(textInaltime.getText()));
-                    p.setKilograme(Integer.parseInt(textKilograme.getText()));
+                    p.setInaltime(Double.parseDouble(textInaltime.getText()));
+                    p.setGreutate(Integer.parseInt(textKilograme.getText()));
                     refreshPestiList();
                     System.out.println("Update-ul s-a facut cu succes");
                 }
                 else if(pasarinumar>=0){
-                    Pasari p=pasari.get(pasarinumar);
+                    Pasare p=pasari.get(pasarinumar);
                     p.setNume(textNume.getText());
-                    p.setInaltime(Integer.parseInt(textInaltime.getText()));
-                    p.setKilograme(Integer.parseInt(textKilograme.getText()));
+                    p.setInaltime(Double.parseDouble(textInaltime.getText()));
+                    p.setGreutate(Double.parseDouble(textKilograme.getText()));
                     refreshPasariList();
                     System.out.println("Update-ul s-a facut cu succes");
                 }
@@ -193,13 +211,29 @@ public class ScreenZoo extends JFrame{
         ADDPEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                    Peste p=new Peste(
+                            textNume.getText(),
+                            Double.parseDouble(textInaltime.getText()),
+                            Integer.parseInt(textKilograme.getText())
+                    );
+                    pesti.add(p);
+                    refreshPestiList();
+                    System.out.println("noul peste  a fost adaugat cu succes");
+                    clearField();
             }
         });
         ADDPAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                Pasare p=new Pasare(
+                        textNume.getText(),
+                        Double.parseDouble(textInaltime.getText()),
+                        Double.parseDouble(textKilograme.getText())
+                );
+                pasari.add(p);
+                refreshPasariList();
+                System.out.println("noua pasare  a fost adaugata cu succes");
+                clearField();
             }
         });
     }
@@ -223,7 +257,7 @@ public class ScreenZoo extends JFrame{
     }
     public void refreshPasariList(){
         lpasari.removeAllElements();
-        for(Pasari p:pasari){
+        for(Pasare p:pasari){
             lpasari.addElement(p.getNume());
         }
     }
@@ -231,11 +265,11 @@ public class ScreenZoo extends JFrame{
         mamifere.add(m);
         refreshMamifereList();
     }
-    public void addPesti(Pesti p){
+    public void addPesti(Peste p){
         pesti.add(p);
         refreshPestiList();
     }
-    public void addPasari(Pasari p){
+    public void addPasari(Pasare p){
         pasari.add(p);
         refreshPasariList();
     }
