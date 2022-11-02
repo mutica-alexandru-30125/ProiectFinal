@@ -44,4 +44,5 @@ Doi constructori la fiecare, dar la pasare facem fara kg sau double //Alex
 
 ## UML Diagram
 
-![UML diagram](Diagrama UML.png)
+![UML diagram]![Diagrama UML](https://user-images.githubusercontent.com/61461372/199485826-c36e4db7-792e-49ee-a8ca-cd6a47fd40d6.PNG)
+
