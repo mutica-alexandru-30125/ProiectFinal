@@ -22,6 +22,7 @@ public class ScreenZoo extends JFrame{
     private JPanel PanelMain;
     private JButton ADDPEButton;
     private JButton ADDPAButton;
+    private JButton RETURNButton;
     private ArrayList<Mamifer> mamifere;
     private DefaultListModel lmamifere;
     private ArrayList<Peste> pesti;
@@ -93,7 +94,11 @@ public class ScreenZoo extends JFrame{
         ADDMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Mamifer m=new Mamifer(
+                String a=textNume.getText();
+                double b=Double.parseDouble(textInaltime.getText());
+                int c=Integer.parseInt(textKilograme.getText());
+               if((a!="")||(b!=0.0)||(c!=0))
+               {Mamifer m=new Mamifer(
                         textNume.getText(),
                         Double.parseDouble(textInaltime.getText()),
                         Integer.parseInt(textKilograme.getText())
@@ -106,7 +111,9 @@ public class ScreenZoo extends JFrame{
                 refreshMamifereList();
                 System.out.println("noul mamifer a fost adaugat cu succes");
                 z.setNr_vietati(z.getNr_vietati()+1);}
-                clearField();
+                clearField();}
+               else
+                {JOptionPane.showMessageDialog(PanelMain,"Eroare, introduceti toate datele");}
 
             }
         });
@@ -256,7 +263,16 @@ public class ScreenZoo extends JFrame{
                 clearField();
             }
         });
+
+        RETURNButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScreenListaZoo screen=new ScreenListaZoo();
+                screen.setVisible(true);
+            }
+        });
     }
+
     private void clearField(){
         textNume.requestFocus();
         textNume.setText("");
