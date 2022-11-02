@@ -4,7 +4,7 @@ public class Mamifer extends Vietate{
     private String _nume;
     private Double _inaltime;
     private int _kg;
-    private nrPicioare;
+    private int nrPicioare;
     public Mamifer(String nume, Double inaltime, int kg)	//Constructori
     {
         this._nume = nume;
@@ -15,14 +15,14 @@ public class Mamifer extends Vietate{
     public Mamifer()
     {
         this._nume = " ";
-        this._inaltime =0;
+        this._inaltime =0.0;
         this._kg = 0;
     }
-	
-	public String toString(){	//toString
-		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
+
+    public String toString(){	//toString
+        return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
-	
+
     public String getNume()									//metode get
     {
         return this._nume;
@@ -35,7 +35,7 @@ public class Mamifer extends Vietate{
     {
         return this._kg;
     }
-	
+
     public void setNume(String nume)						//metode set
     {
         this._nume=nume;

@@ -1,64 +1,45 @@
+package com.benialex.proiectfinal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login {
-
-    private JPanel panel;
-    private JFrame frame;
-    private JLabel lblUser;
-    private JLabel lblPass;
+public class Login extends JFrame{
+    public String U,P;
+    private JPanel panel1;
     private JTextField txtUser;
     private JTextField txtPass;
-
-    private JButton btnLoghin;
-
-    public String U,P;
+    private JButton LOGAREButton;
 
     public Login(){
-        panel = new JPanel();
-        panel.setBackground(Color.darkGray);
-        //panel.setLayout(null);
-
-        frame = new JFrame();
-
-        lblUser=new JLabel("Username");
-        panel.add(lblUser);
-        lblPass = new JLabel("Password");
-        panel.add(lblPass);
-
-        txtUser = new JTextField();
-        panel.add(txtUser);
-        txtPass = new JTextField();
-        panel.add(txtPass);
+        super("Proiect 3");
+        this.setContentPane(this.panel1);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
 
         U = "abcd";
         P = "0000";
-
-        btnLoghin = new JButton("loghin");
-        panel.add(btnLoghin);
-        btnLoghin.addActionListener(new ActionListener() {
+        LOGAREButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if((U==txtUser.getText())&&(P==txtPass.getText())){
+                String a=txtUser.getText();
+                if((U.equals(a))&&(P.equals(txtPass.getText()))){
                     System.out.println("Bun!");
+                    AddZoo screen=new AddZoo();
+                    screen.setVisible(true);
+                    dispose();
                 }
                 else{
                     System.out.println("Gresit!");
                 }
             }
         });
-
-        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Proiect II");
-        frame.setContentPane(new Login().panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setSize(500,500);
-        frame.setVisible(true);
+        Login screen=new Login();
+        screen.setVisible(true);
     }
 }
+

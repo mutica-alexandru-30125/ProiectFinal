@@ -4,7 +4,7 @@ public class Pasare extends Vietate{
     private String _nume;
     private Double _inaltime;
     private Double _kg;
-    private nrPicioare;
+    private int nrPicioare;
 
     public Pasare(String nume, Double inaltime, Double kg)	//Constructori
     {
@@ -13,13 +13,13 @@ public class Pasare extends Vietate{
         this._kg = kg;
         this.nrPicioare = super.nrPicioare();
     }
-	public Pasare(String nume, Double inaltime, Double kg)
+    public Pasare()
     {
         this._nume = "";
-        this._inaltime = 0;
-        this._kg = 0;
+        this._inaltime = 0.0;
+        this._kg = 0.0;
     }
-	
+
     public String toString(){	//toString
         return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
@@ -32,7 +32,7 @@ public class Pasare extends Vietate{
     public Double getGreutate(){
         return this._kg;
     }
-	
+
     public void setNume(String nume){	//Metode set
         this._nume=nume;
     }

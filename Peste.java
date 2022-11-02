@@ -4,7 +4,7 @@ public class Peste extends Vietate{
     private String _nume;
     private Double _inaltime;
     private int _kg;
-    private nrPicioare;
+    private int nrPicioare;
 
     public Peste(String nume, Double inaltime, int kg)	//Constructori
     {
@@ -13,17 +13,17 @@ public class Peste extends Vietate{
         this._kg = kg;
         this.nrPicioare = super.nrPicioare();
     }
-	public Peste()
+    public Peste()
     {
         this._nume = "";
-        this._inaltime = 0;
+        this._inaltime = 0.0;
         this._kg = 0;
     }
 
     public String toString(){	//toString
-		return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
+        return "Nume: "+_nume+"; inaltime: "+_inaltime+"; greutate: "+_kg+" si are "+nrPicioare+" picioare!";
     }
-	
+
     public String getNume()		//Metode get
     {
         return this._nume;
@@ -36,7 +36,7 @@ public class Peste extends Vietate{
     {
         return this._kg;
     }
-	
+
     public void setNume(String nume)	//Metode set
     {
         this._nume=nume;

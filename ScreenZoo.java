@@ -23,6 +23,7 @@ public class ScreenZoo extends JFrame{
     private JButton ADDPEButton;
     private JButton ADDPAButton;
     private JButton RETURNButton;
+    private JButton EMPTYButton;
     private ArrayList<Mamifer> mamifere;
     private DefaultListModel lmamifere;
     private ArrayList<Peste> pesti;
@@ -269,6 +270,12 @@ public class ScreenZoo extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 ScreenListaZoo screen=new ScreenListaZoo();
                 screen.setVisible(true);
+            }
+        });
+        EMPTYButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearField();
             }
         });
     }
